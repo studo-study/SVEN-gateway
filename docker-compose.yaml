@@ -1,0 +1,39 @@
+services:
+  gateway-db:
+    container_name: gateway-db
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    ports:
+      - "5450:5450"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - backups:/root/backups
+    environment:
+      POSTGRES_DB: gateway
+      POSTGRES_USER: devusr
+      POSTGRES_PASSWORD: devpwd
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U devusr -d studo"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  gateway-cache:
+    container_name: gateway-redis
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6380:6380"
+    command: >
+      redis-server
+      --save 20 1
+      --loglevel warning
+      --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes:
+      - cache_data:/data
+
+volumes:
+  db_data: {}
+  backups: {}
+  cache_data: {}
