@@ -17,4 +17,11 @@ start-api:
 	@echo "starting up the api..."
 	cd gateway-api/ && cargo run
 
+start-docker:
+	@echo "starting up docker..."
+	docker compose up
+
 start-all: start-api start-frontend
+
+stop-docker:
+	docker compose down
