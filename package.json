@@ -2,6 +2,7 @@
   "name": "@SVEN-gateway",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@11.0.5",
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
