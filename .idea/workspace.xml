@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CargoProjects">
+    <cargoProject FILE="$PROJECT_DIR$/gateway-api/Cargo.toml">
+      <package file="$PROJECT_DIR$/gateway-api">
+        <feature name="default" enabled="true" />
+      </package>
+    </cargoProject>
+    <cargoProject FILE="$PROJECT_DIR$/gateway-api/src/http/Cargo.toml">
+      <package file="$PROJECT_DIR$/gateway-api/src/http">
+        <feature name="default" enabled="true" />
+      </package>
+    </cargoProject>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="909d6cc5-7e93-408a-84bf-7d96fed9d3ad" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="GitHub Workflow" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="uABw0DTT" />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0000000001863159" />
+      <entry key="S10" value="1.000038603779052" />
+      <entry key="S30" value="1.140607846449739" />
+      <entry key="S60" value="2.3690123199116924" />
+      <entry key="M2" value="8.048728206614694" />
+      <entry key="M5" value="31.96466154441498" />
+      <entry key="M10" value="58.27716375722736" />
+      <entry key="M15" value="72.43508181357551" />
+      <entry key="M30" value="90.84813335938445" />
+      <entry key="H1" value="102.09374002082221" />
+      <entry key="H2" value="108.32303154096884" />
+      <entry key="H4" value="111.60337224232299" />
+      <entry key="D1" value="114.42562696238535" />
+      <entry key="W1" value="114.91774164887393" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="2.5698230338636898E-95" />
+      <entry key="S5" value="1.4586842359612797E-38" />
+      <entry key="S10" value="1.2078527365648933E-19" />
+      <entry key="S30" value="5.157745307480766E-7" />
+      <entry key="S60" value="8.906556554921092E-4" />
+      <entry key="M2" value="0.051588587313858354" />
+      <entry key="M5" value="0.8094268003172982" />
+      <entry key="M10" value="2.169098838799088" />
+      <entry key="M15" value="3.034667918586835" />
+      <entry key="M30" value="4.260126575040966" />
+      <entry key="H1" value="5.053750450538769" />
+      <entry key="H2" value="5.506045280960704" />
+      <entry key="H4" value="5.74757828930068" />
+      <entry key="D1" value="5.95715255722459" />
+      <entry key="W1" value="5.993859624272731" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.5547847360339225" />
+      <entry key="MS500" value="0.8888426811665702" />
+      <entry key="S2" value="0.970970924342351" />
+      <entry key="S5" value="0.9882856516869861" />
+      <entry key="S10" value="0.9941641686703295" />
+      <entry key="S30" value="1.138633021704392" />
+      <entry key="S60" value="2.3686741572202665" />
+      <entry key="M2" value="8.09824222456101" />
+      <entry key="M5" value="32.76859399986168" />
+      <entry key="M10" value="60.4399720073719" />
+      <entry key="M15" value="75.46412002590267" />
+      <entry key="M30" value="95.10444995820585" />
+      <entry key="H1" value="107.1452677132561" />
+      <entry key="H2" value="113.82787548321599" />
+      <entry key="H4" value="117.35032591826842" />
+      <entry key="D1" value="120.38267196134028" />
+      <entry key="W1" value="120.91158582129059" />
+    </decayedShown>
+  </component>
+  <component name="NoctuleProjectWorkspaceSettings">
+    <option name="migratedAutodetectionSetting" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3IQpbbjPdn483KEJn1V0SDPVk8A" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "cidr.known.project.marker": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/charlesdegreauwe/Development/Studo/SVEN-gateway",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
+    "org.rust.first.attach.projects": "true",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "show.migrate.to.gradle.popup": "false",
+    "ts.external.directory.path": "/Users/charlesdegreauwe/Development/Studo/SVEN-gateway/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" IS_LOCATION_SIMULATION_SUPPORTED="false" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+      <embedded_app_extension_list />
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="RustProjectSettings">
+    <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.25134.95" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.25134.95" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SwiftProjectSettings">
+    <option name="detectedToolchain" value="true" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="909d6cc5-7e93-408a-84bf-7d96fed9d3ad" name="Changes" comment="" />
+      <created>1787706719218</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1787706719218</updated>
+      <workItem from="1787706720232" duration="1609000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

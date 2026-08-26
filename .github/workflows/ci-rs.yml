@@ -1,0 +1,27 @@
+name: CI-rs
+
+on:
+  workflow_call:
+  pull_request:
+    paths:
+      - "gateway-api/**"
+    branches: ["**"]
+  push:
+    paths:
+      - "gateway-api/**"
+    branches:
+      - main
+
+jobs:
+  clippy_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: gateway-api
+      - name: Run Clippy
+        run: cd gateway-api/ && cargo clippy --all-targets --all-features -- -D warnings
