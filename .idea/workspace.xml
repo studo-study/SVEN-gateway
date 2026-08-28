@@ -24,9 +24,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="GitHub Workflow" />
-        <option value="Rust File" />
         <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="Rust File" />
       </list>
     </option>
   </component>
@@ -38,61 +38,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0016401625194167" />
-      <entry key="MS500" value="1.7703221005334355" />
-      <entry key="S2" value="6.756513772401908" />
-      <entry key="S5" value="12.447816370546331" />
-      <entry key="S10" value="20.768972780174796" />
-      <entry key="S30" value="42.875202162178105" />
-      <entry key="S60" value="57.02133274962476" />
-      <entry key="M2" value="70.51337985571134" />
-      <entry key="M5" value="88.86852209201818" />
-      <entry key="M10" value="112.51145553352963" />
-      <entry key="M15" value="140.27183974750054" />
-      <entry key="M30" value="228.59322961725522" />
-      <entry key="H1" value="365.3464246818079" />
-      <entry key="H2" value="507.0132381580237" />
-      <entry key="H4" value="614.2339478524551" />
-      <entry key="D1" value="731.6756985744676" />
-      <entry key="W1" value="755.0090660903318" />
+      <entry key="MS100" value="1.1738414719703902E-16" />
+      <entry key="MS500" value="7.931616036894096E-4" />
+      <entry key="S2" value="0.3658600784336471" />
+      <entry key="S5" value="1.4882491378577494" />
+      <entry key="S10" value="2.4269017791670757" />
+      <entry key="S30" value="3.8856632302173755" />
+      <entry key="S60" value="8.098521768539706" />
+      <entry key="M2" value="20.175445923211946" />
+      <entry key="M5" value="60.19890000655066" />
+      <entry key="M10" value="116.77034182020365" />
+      <entry key="M15" value="158.9633623032859" />
+      <entry key="M30" value="248.94875464372507" />
+      <entry key="H1" value="365.9863232090054" />
+      <entry key="H2" value="501.6445438341161" />
+      <entry key="H4" value="674.9368054584547" />
+      <entry key="D1" value="1386.1736823396852" />
+      <entry key="W1" value="1725.2059682073293" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="2.43160829271654E-82" />
-      <entry key="S2" value="4.690410108437583E-21" />
-      <entry key="S5" value="1.0430092448006531E-8" />
-      <entry key="S10" value="1.436344206562678E-4" />
-      <entry key="S30" value="0.11637979392696565" />
-      <entry key="S60" value="0.9655737962804367" />
-      <entry key="M2" value="3.3270876960030553" />
-      <entry key="M5" value="7.59552431789488" />
-      <entry key="M10" value="11.63140804646598" />
-      <entry key="M15" value="15.503154478965106" />
-      <entry key="M30" value="26.49971254017123" />
-      <entry key="H1" value="41.295644807022676" />
-      <entry key="H2" value="54.96202063417024" />
-      <entry key="H4" value="64.61324507218981" />
-      <entry key="D1" value="74.70875001424622" />
-      <entry key="W1" value="76.66655994883132" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0000000312313597" />
+      <entry key="S60" value="1.000177137431433" />
+      <entry key="M2" value="1.014217768873022" />
+      <entry key="M5" value="1.2814121128058535" />
+      <entry key="M10" value="1.970490255069015" />
+      <entry key="M15" value="2.5812624662645147" />
+      <entry key="M30" value="3.9410118754679817" />
+      <entry key="H1" value="5.671831930149596" />
+      <entry key="H2" value="7.929652800874358" />
+      <entry key="H4" value="14.54652102752656" />
+      <entry key="D1" value="64.25625679374795" />
+      <entry key="W1" value="90.52483108585227" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.08943295815125119" />
-      <entry key="MS500" value="1.2351514002924833" />
-      <entry key="S2" value="6.430590603744102" />
-      <entry key="S5" value="12.260651590260988" />
-      <entry key="S10" value="20.65823964055565" />
-      <entry key="S30" value="42.932355001687775" />
-      <entry key="S60" value="57.91372512230226" />
-      <entry key="M2" value="73.74813360735386" />
-      <entry key="M5" value="96.38453795688447" />
-      <entry key="M10" value="124.07433309280385" />
-      <entry key="M15" value="155.70656960195805" />
-      <entry key="M30" value="255.02538701929836" />
-      <entry key="H1" value="406.5866712822694" />
-      <entry key="H2" value="561.9380141313026" />
-      <entry key="H4" value="678.8253069789017" />
-      <entry key="D1" value="806.3802455047803" />
-      <entry key="W1" value="831.6750104195817" />
+      <entry key="MS100" value="5.090164847858132E-4" />
+      <entry key="MS500" value="0.22023830271920866" />
+      <entry key="S2" value="1.0479857407735365" />
+      <entry key="S5" value="2.342250756631782" />
+      <entry key="S10" value="3.3490526672066334" />
+      <entry key="S30" value="4.854510295861792" />
+      <entry key="S60" value="9.065399632964477" />
+      <entry key="M2" value="21.146689575825697" />
+      <entry key="M5" value="61.43409931805405" />
+      <entry key="M10" value="118.69911545036366" />
+      <entry key="M15" value="161.50846142930146" />
+      <entry key="M30" value="252.86458334783168" />
+      <entry key="H1" value="371.6422132007271" />
+      <entry key="H2" value="509.5645311551176" />
+      <entry key="H4" value="689.4763816256591" />
+      <entry key="D1" value="1450.4261472810663" />
+      <entry key="W1" value="1815.7300579636" />
     </decayedShown>
   </component>
   <component name="NoctuleProjectWorkspaceSettings">
@@ -109,6 +109,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -137,20 +138,41 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gateway-api/diesel" />
       <recent name="$PROJECT_DIR$/public/logo" />
       <recent name="$PROJECT_DIR$/app/routes/app/about" />
       <recent name="$PROJECT_DIR$/app/routes/app/home" />
       <recent name="$PROJECT_DIR$/app/routes/app" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" IS_LOCATION_SIMULATION_SUPPORTED="false" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
-      <embedded_app_extension_list />
+    <configuration default="true" type="Application" factoryName="Application">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="SVEN-gateway" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="SVEN-gateway" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration name="start-frontend" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="start-frontend" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Makefile Target.start-frontend" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
