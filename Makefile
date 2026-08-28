@@ -25,3 +25,13 @@ start-all: start-api start-frontend
 
 stop-docker:
 	docker compose down
+
+
+#diesel workflow
+generate-schema:
+	@echo "generating migration..."
+	cd gateway-api && diesel migration generate
+
+migrate-schema:
+	@echo "generating migration..."
+	cd gateway-api && diesel migration run
