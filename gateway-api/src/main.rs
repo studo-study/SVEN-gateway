@@ -1,17 +1,20 @@
-mod error;
 mod config;
+mod error;
 mod schema;
 
-use std::{env, io};
-use axum::{routing::get, Router};
+use axum::{Router, routing::get};
+use std::env;
 
 #[tokio::main]
 async fn main() {
-    dotenvy::dotenv()?;
+    dotenvy::dotenv().ok();
     let app = Router::new().route("/", get(root_handler));
 
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:" + io::read_to_string("DEV_PORT")).await.unwrap();
-    println!("Server running on http://localhost:3000");
+    let port = env::var("DEV_PORT").unwrap_or_else(|_| "3000".into());
+    let listener = tokio::net::TcpListener::bind(format!("0.0.0.0:{port}"))
+        .await
+        .unwrap();
+    println!("Server running on http://localhost:{port}");
 
     axum::serve(listener, app).await.unwrap();
 }
