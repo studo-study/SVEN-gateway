@@ -5,7 +5,6 @@ pub mod gateway {
         #[derive(diesel::query_builder::QueryId, Clone, diesel::sql_types::SqlType)]
         #[diesel(postgres_type(name = "log_type", schema = "gateway"))]
         pub struct LogType;
-
         #[derive(diesel::query_builder::QueryId, Clone, diesel::sql_types::SqlType)]
         #[diesel(postgres_type(name = "message_role", schema = "gateway"))]
         pub struct MessageRole;

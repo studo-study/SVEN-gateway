@@ -13,7 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="909d6cc5-7e93-408a-84bf-7d96fed9d3ad" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,66 +32,78 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "CharlesDegraeuwe"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/studo-study/SVEN-gateway.git",
+    "accountId": "894ab432-19f7-4b06-b510-695bc10befb8"
+  }
+}]]></component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="uABw0DTT" />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.1738414719703902E-16" />
-      <entry key="MS500" value="7.931616036894096E-4" />
-      <entry key="S2" value="0.3658600784336471" />
-      <entry key="S5" value="1.4882491378577494" />
-      <entry key="S10" value="2.4269017791670757" />
-      <entry key="S30" value="3.8856632302173755" />
-      <entry key="S60" value="8.098521768539706" />
-      <entry key="M2" value="20.175445923211946" />
-      <entry key="M5" value="60.19890000655066" />
-      <entry key="M10" value="116.77034182020365" />
-      <entry key="M15" value="158.9633623032859" />
-      <entry key="M30" value="248.94875464372507" />
-      <entry key="H1" value="365.9863232090054" />
-      <entry key="H2" value="501.6445438341161" />
-      <entry key="H4" value="674.9368054584547" />
-      <entry key="D1" value="1386.1736823396852" />
-      <entry key="W1" value="1725.2059682073293" />
+      <entry key="MS100" value="1.5562704565206043" />
+      <entry key="MS500" value="4.104290596961034" />
+      <entry key="S2" value="8.752121853172813" />
+      <entry key="S5" value="14.101222022216291" />
+      <entry key="S10" value="18.223590723264238" />
+      <entry key="S30" value="23.57817962247716" />
+      <entry key="S60" value="28.26742121062325" />
+      <entry key="M2" value="39.63325902294119" />
+      <entry key="M5" value="78.6884173942062" />
+      <entry key="M10" value="135.43083733645764" />
+      <entry key="M15" value="178.1948692034173" />
+      <entry key="M30" value="269.4196448628691" />
+      <entry key="H1" value="387.6539106945363" />
+      <entry key="H2" value="524.3602146122529" />
+      <entry key="H4" value="698.4005049830754" />
+      <entry key="D1" value="1410.6484131408038" />
+      <entry key="W1" value="1750.1125980262168" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0000000312313597" />
-      <entry key="S60" value="1.000177137431433" />
-      <entry key="M2" value="1.014217768873022" />
-      <entry key="M5" value="1.2814121128058535" />
-      <entry key="M10" value="1.970490255069015" />
-      <entry key="M15" value="2.5812624662645147" />
-      <entry key="M30" value="3.9410118754679817" />
-      <entry key="H1" value="5.671831930149596" />
-      <entry key="H2" value="7.929652800874358" />
-      <entry key="H4" value="14.54652102752656" />
-      <entry key="D1" value="64.25625679374795" />
-      <entry key="W1" value="90.52483108585227" />
+      <entry key="MS100" value="1.1677969708224578E-142" />
+      <entry key="MS500" value="4.106515523369278E-29" />
+      <entry key="S2" value="8.005129597142065E-8" />
+      <entry key="S5" value="0.0014499310386328873" />
+      <entry key="S10" value="0.038077960011440815" />
+      <entry key="S30" value="0.33642730610434235" />
+      <entry key="S60" value="0.5801262740883028" />
+      <entry key="M2" value="0.7724209085889538" />
+      <entry key="M5" value="1.1491532439774432" />
+      <entry key="M10" value="1.8660309928595227" />
+      <entry key="M15" value="2.4892119309775826" />
+      <entry key="M30" value="3.8701036564309117" />
+      <entry key="H1" value="5.620575423448886" />
+      <entry key="H2" value="7.893741234168336" />
+      <entry key="H4" value="14.513544732064384" />
+      <entry key="D1" value="64.23195616599996" />
+      <entry key="W1" value="90.51993958477014" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="5.090164847858132E-4" />
-      <entry key="MS500" value="0.22023830271920866" />
-      <entry key="S2" value="1.0479857407735365" />
-      <entry key="S5" value="2.342250756631782" />
-      <entry key="S10" value="3.3490526672066334" />
-      <entry key="S30" value="4.854510295861792" />
-      <entry key="S60" value="9.065399632964477" />
-      <entry key="M2" value="21.146689575825697" />
-      <entry key="M5" value="61.43409931805405" />
-      <entry key="M10" value="118.69911545036366" />
-      <entry key="M15" value="161.50846142930146" />
-      <entry key="M30" value="252.86458334783168" />
-      <entry key="H1" value="371.6422132007271" />
-      <entry key="H2" value="509.5645311551176" />
-      <entry key="H4" value="689.4763816256591" />
-      <entry key="D1" value="1450.4261472810663" />
-      <entry key="W1" value="1815.7300579636" />
+      <entry key="MS100" value="1.5012471118981152" />
+      <entry key="MS500" value="4.071529900391414" />
+      <entry key="S2" value="8.735565182777153" />
+      <entry key="S5" value="14.092009717218716" />
+      <entry key="S10" value="18.251993446706162" />
+      <entry key="S30" value="23.901373226393083" />
+      <entry key="S60" value="28.82677508934157" />
+      <entry key="M2" value="40.372200198914406" />
+      <entry key="M5" value="79.79582175477961" />
+      <entry key="M10" value="137.25720931627058" />
+      <entry key="M15" value="180.64910463381625" />
+      <entry key="M30" value="273.2649669572795" />
+      <entry key="H1" value="393.2586624730724" />
+      <entry key="H2" value="532.2443212455987" />
+      <entry key="H4" value="712.907114150019" />
+      <entry key="D1" value="1474.876577813478" />
+      <entry key="W1" value="1840.6317961678901" />
     </decayedShown>
   </component>
   <component name="NoctuleProjectWorkspaceSettings">
@@ -120,7 +131,7 @@
     "cidr.known.project.marker": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "feat/infra-fixes",
+    "git-widget-placeholder": "#3 on feat/axum",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/charlesdegreauwe/Development/Studo/SVEN-gateway",
     "node.js.detected.package.eslint": "true",
@@ -146,9 +157,10 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="Application" factoryName="Application">
+    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" IS_LOCATION_SIMULATION_SUPPORTED="false" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+      <embedded_app_extension_list />
       <method v="2">
-        <option name="Make" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
@@ -196,6 +208,7 @@
       <option name="presentableId" value="Default" />
       <updated>1787706719218</updated>
       <workItem from="1787706720232" duration="1962000" />
+      <workItem from="1791756534230" duration="1350000" />
     </task>
     <servers />
   </component>
