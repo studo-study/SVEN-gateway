@@ -1,0 +1,43 @@
+import * as React from "react";
+import {Dialog} from "radix-ui";
+import {XIcon} from "lucide-react";
+import type {ReactNode} from "react";
+import Button from "~/components/design_system/button/Button";
+
+interface IBaseDialogProps {
+    trigger: ReactNode;
+    content: ReactNode;
+    close?: ReactNode;
+    next?: ReactNode;
+}
+
+const BaseDialog: React.FC<IBaseDialogProps> = (props) => {
+    const {trigger, content, close, next} = props;
+    return (
+        <Dialog.Root>
+            <Dialog.Trigger asChild>
+                {trigger}
+            </Dialog.Trigger>
+            <Dialog.Portal>
+                <Dialog.Overlay className="bg-black/40 absolute w-screen h-screen z-999 left-0 top-0"/>
+                <Dialog.Content
+                    className="bg-white max-w-220 max-h-220 h-fit w-fit px-10 py-5 pt-10 border border-neutral-200 rounded-2xl absolute z-9999 left-1/2 top-1/2 -translate-1/2">
+                    {content}
+                    <div className={"flex flex-row justify-end w-full gap-2 items-center"}>
+                        {close && <Dialog.Close asChild>
+                            {close}
+                        </Dialog.Close>}
+
+                        {next && <Dialog.Close asChild>
+                            {next}
+                        </Dialog.Close>}
+                    </div>
+                </Dialog.Content>
+            </Dialog.Portal>
+        </Dialog.Root>
+    )
+}
+
+
+BaseDialog.displayName = "BaseDialog"
+export default BaseDialog;

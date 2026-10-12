@@ -1,4 +1,5 @@
 import type { Route } from "./+types/Activity";
+import {PageTitle} from "~/components/design_system/pageTitle/PageTitle";
 
 
 export function meta({}: Route.MetaArgs) {
@@ -13,10 +14,7 @@ export function loader() {
 }
 
 export default function Activity({ loaderData }: Route.ComponentProps) {
-    return (
-        <main>
-            <h1>Activity</h1>
-            <p>{loaderData.message}</p>
-        </main>
-    );
+    return <main>
+        <PageTitle title={'Activity'}/>
+    </main>;
 }

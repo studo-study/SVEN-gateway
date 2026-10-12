@@ -1,3 +1,4 @@
+import { PageTitle } from "~/components/design_system/pageTitle/PageTitle";
 import type { Route } from "./+types/ApiKeys";
 
 
@@ -15,8 +16,7 @@ export function loader() {
 export default function ApiKeys({ loaderData }: Route.ComponentProps) {
     return (
         <main>
-            <h1>API-keys</h1>
-            <p>{loaderData.message}</p>
+           <PageTitle title={"API-keys"}/>
         </main>
     );
 }

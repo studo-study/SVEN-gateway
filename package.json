@@ -8,7 +8,11 @@
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
-    "knip": "knip"
+    "knip": "knip",
+    "db:migrate": "cd gateway-api && diesel migration run",
+    "db:reset": "gateway-api/scripts/db.sh reset",
+    "db:seed": "gateway-api/scripts/db.sh seed",
+    "db:reset-and-seed": "gateway-api/scripts/db.sh reset-and-seed"
   },
   "dependencies": {
     "@react-router/node": "^8",
