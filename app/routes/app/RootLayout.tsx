@@ -2,6 +2,13 @@ import {Link, Outlet} from "react-router";
 import SvenIcon from "~/components/icons/SvenIcon";
 import SideMenu from "~/components/layout/SideMenu";
 import {Bell, User} from "lucide-react";
+import {authMiddleware} from "~/middleware";
+
+export const middleware = [authMiddleware];
+
+export function headers() {
+    return {"Cache-Control": "no-store"};
+}
 
 export default function RootLayout() {
     return (

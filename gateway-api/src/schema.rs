@@ -1,5 +1,16 @@
 // @generated automatically by Diesel CLI.
 
+// Shared `public.users` table from the main Studo app's database. Read-only
+// from gateway-api: only the columns the login flow needs are declared here.
+diesel::table! {
+    users (id) {
+        id -> Uuid,
+        email -> Varchar,
+        password_hash -> Varchar,
+        roles -> Jsonb,
+    }
+}
+
 pub mod gateway {
     pub mod sql_types {
         #[derive(diesel::query_builder::QueryId, Clone, diesel::sql_types::SqlType)]

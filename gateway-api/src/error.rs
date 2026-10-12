@@ -4,6 +4,8 @@ use axum::response::{IntoResponse, Response};
 #[derive(Debug)]
 pub enum AppError {
     NotFound,
+    Unauthorized,
+    Forbidden,
     Database(diesel::result::Error),
     Pool(diesel::r2d2::PoolError),
 }
@@ -27,6 +29,8 @@ impl IntoResponse for AppError {
     fn into_response(self) -> Response {
         let (status, message) = match self {
             AppError::NotFound => (StatusCode::NOT_FOUND, "resource not found".to_string()),
+            AppError::Unauthorized => (StatusCode::UNAUTHORIZED, "invalid credentials".to_string()),
+            AppError::Forbidden => (StatusCode::FORBIDDEN, "admin access required".to_string()),
             AppError::Database(err) => {
                 eprintln!("database error: {err}");
                 (
