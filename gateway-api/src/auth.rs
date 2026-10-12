@@ -48,7 +48,11 @@ fn roles_from_json(value: &serde_json::Value) -> Vec<String> {
         .unwrap_or_default()
 }
 
-fn create_token(user: &AuthUser, roles: &[String], secret: &str) -> jsonwebtoken::errors::Result<String> {
+fn create_token(
+    user: &AuthUser,
+    roles: &[String],
+    secret: &str,
+) -> jsonwebtoken::errors::Result<String> {
     let exp = (Utc::now() + Duration::days(30)).timestamp() as usize;
     let claims = Claims {
         sub: user.id,
@@ -85,8 +89,7 @@ pub async fn login(
         .optional()?
         .ok_or(AppError::Unauthorized)?;
 
-    let parsed_hash =
-        PasswordHash::new(&user.password_hash).map_err(|_| AppError::Unauthorized)?;
+    let parsed_hash = PasswordHash::new(&user.password_hash).map_err(|_| AppError::Unauthorized)?;
     Argon2::default()
         .verify_password(body.password.as_bytes(), &parsed_hash)
         .map_err(|_| AppError::Unauthorized)?;
@@ -96,7 +99,8 @@ pub async fn login(
         return Err(AppError::Forbidden);
     }
 
-    let token = create_token(&user, &roles, &state.jwt_secret).map_err(|_| AppError::Unauthorized)?;
+    let token =
+        create_token(&user, &roles, &state.jwt_secret).map_err(|_| AppError::Unauthorized)?;
 
     let cookie = Cookie::build((COOKIE_NAME, token.clone()))
         .http_only(true)
@@ -117,13 +121,14 @@ pub async fn login(
 }
 
 pub async fn logout(jar: CookieJar) -> CookieJar {
-    let cookie = Cookie::build((COOKIE_NAME, ""))
-        .path("/")
-        .build();
+    let cookie = Cookie::build((COOKIE_NAME, "")).path("/").build();
     jar.remove(cookie)
 }
 
-pub async fn me(State(state): State<AppState>, jar: CookieJar) -> Result<Json<UserResponse>, AppError> {
+pub async fn me(
+    State(state): State<AppState>,
+    jar: CookieJar,
+) -> Result<Json<UserResponse>, AppError> {
     let token = jar
         .get(COOKIE_NAME)
         .map(|c| c.value().to_string())
