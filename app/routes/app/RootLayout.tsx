@@ -14,11 +14,11 @@ export default function RootLayout() {
     return (
         <div className={"flex flex-col w-screen h-screen"}>
             <header
-                className={"w-screen bg-neutral-50-500 min-h-20 h-20 border-b border-neutral-200 px-3 pr-5 flex items-center justify-between"}>
+                className={"w-screen bg-neutral-50-500 min-h-15 h-15 border-b border-neutral-200 px-3 pr-5 flex items-center justify-between"}>
                 <Link to="/"
                       className={"flex flex-row gap-2 items-center px-3 py-1.5 rounded-2xl hover:bg-neutral-200/50 transition-colors duration-300"}>
-                    <SvenIcon size={23} className={"pb-1"}/>
-                    <h1 className={"text-2xl font-georgia font-medium"}><span
+                    <SvenIcon size={20} className={"pb-1"}/>
+                    <h1 className={"text-xl font-georgia font-medium"}><span
                         className={"text-blue-500"}>Sven</span> gateway</h1>
                 </Link>
 

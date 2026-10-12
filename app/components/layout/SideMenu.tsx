@@ -1,5 +1,5 @@
 import {Link, useLocation, useNavigate, useNavigation} from "react-router";
-import {ChartColumn, ChartLine, Cog, Database, Key, LayoutDashboard} from "lucide-react";
+import {Bot, ChartColumn, ChartLine, Cog, Database, Key, LayoutDashboard} from "lucide-react";
 
 
 const MENU_ITEMS = [
@@ -34,6 +34,11 @@ const MENU_ITEMS = [
         title: "configuration",
         options: [
             {
+                label: "models",
+                to: "models",
+                icon: <Bot size={15}/>
+            },
+            {
                 label: "api-keys",
                 to: "api-keys",
                 icon: <Key size={15}/>
@@ -64,7 +69,7 @@ const SideMenu = () => {
                     {section.options.map((item, index) => {
                         return (
                             <Link to={"/" + item.to} key={item.label + index}
-                                  className={`${path.toLowerCase() === item.to && "bg-neutral-200/50"} flex flex-row gap-2 capitalize items-center text-base rounded-2xl px-3 py-2 hover:transition-colors duration-300 hover:bg-neutral-200/50`}>
+                                  className={`${path.toLowerCase() === item.to && "bg-neutral-200/50"} flex flex-row gap-2 capitalize items-center text-sm rounded-2xl px-3 py-2 hover:transition-colors duration-300 hover:bg-neutral-200/50`}>
                                 {item.icon}
                                 <span>{item.label}</span>
                             </Link>

@@ -10,6 +10,7 @@ export default [
         route("notifications", "routes/app/notifications/Notifications.tsx"),
         route("account", "routes/app/account/Account.tsx"),
         route("operations", "routes/app/operations/Operations.tsx"),
+        route('models', "routes/app/models/Models.tsx")
     ]),
     route("login", 'routes/auth/login/Login.tsx')
 ] satisfies RouteConfig;

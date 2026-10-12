@@ -1,14 +1,15 @@
-mod auth;
 mod config;
 mod error;
+mod http;
 mod models;
 mod schema;
+mod schema_public;
 
 use axum::{
     Json, Router,
     extract::{Path, State},
-    http::{HeaderValue, Method, header::CONTENT_TYPE},
-    routing::{get, post},
+    http::{HeaderValue, Method, header::{AUTHORIZATION, CONTENT_TYPE}},
+    routing::get,
 };
 use diesel::prelude::*;
 use diesel::r2d2::{ConnectionManager, Pool};
@@ -58,14 +59,12 @@ async fn main() {
         )
         .allow_credentials(true)
         .allow_methods([Method::GET, Method::POST, Method::OPTIONS])
-        .allow_headers([CONTENT_TYPE]);
+        .allow_headers([CONTENT_TYPE, AUTHORIZATION]);
 
     let app = Router::new()
         .route("/", get(root_handler))
         .route("/v1/conversations/{id}", get(get_conversation))
-        .route("/v1/auth/login", post(auth::login))
-        .route("/v1/auth/logout", post(auth::logout))
-        .route("/v1/auth/me", get(auth::me))
+        .merge(http::router())
         .with_state(AppState {
             pool,
             jwt_secret: config.jwt_secret,

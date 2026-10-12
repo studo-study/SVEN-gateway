@@ -1,5 +1,5 @@
 use argon2::{Argon2, PasswordHash, PasswordVerifier};
-use axum::{Json, extract::State};
+use axum::{Json, Router, extract::State, routing::{get, post}};
 use axum_extra::extract::cookie::{Cookie, CookieJar, SameSite};
 use chrono::{Duration, Utc};
 use diesel::prelude::*;
@@ -10,7 +10,7 @@ use uuid::Uuid;
 use crate::AppState;
 use crate::error::AppError;
 use crate::models::AuthUser;
-use crate::schema::users;
+use crate::schema_public::users;
 
 pub const COOKIE_NAME: &str = "session";
 const ADMIN_ROLE: &str = "admin";
@@ -142,4 +142,11 @@ pub async fn me(
         roles: claims.roles,
         token,
     }))
+}
+
+pub fn router() -> Router<AppState> {
+    Router::new()
+        .route("/login", post(login))
+        .route("/logout", post(logout))
+        .route("/me", get(me))
 }

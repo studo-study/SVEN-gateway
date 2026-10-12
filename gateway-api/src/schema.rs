@@ -2,27 +2,27 @@
 
 pub mod gateway {
     pub mod sql_types {
-        #[derive(diesel::query_builder::QueryId, Clone, diesel::sql_types::SqlType)]
+        #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
         #[diesel(postgres_type(name = "log_type", schema = "gateway"))]
         pub struct LogType;
 
-        #[derive(diesel::query_builder::QueryId, Clone, diesel::sql_types::SqlType)]
+        #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
         #[diesel(postgres_type(name = "message_role", schema = "gateway"))]
         pub struct MessageRole;
 
-        #[derive(diesel::query_builder::QueryId, Clone, diesel::sql_types::SqlType)]
+        #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
         #[diesel(postgres_type(name = "model_type", schema = "gateway"))]
         pub struct ModelType;
 
-        #[derive(diesel::query_builder::QueryId, Clone, diesel::sql_types::SqlType)]
+        #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
         #[diesel(postgres_type(name = "operation_type", schema = "gateway"))]
         pub struct OperationType;
 
-        #[derive(diesel::query_builder::QueryId, Clone, diesel::sql_types::SqlType)]
+        #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
         #[diesel(postgres_type(name = "platform", schema = "gateway"))]
         pub struct Platform;
 
-        #[derive(diesel::query_builder::QueryId, Clone, diesel::sql_types::SqlType)]
+        #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
         #[diesel(postgres_type(name = "provider", schema = "gateway"))]
         pub struct Provider;
     }
@@ -66,7 +66,7 @@ pub mod gateway {
             model_name -> Nullable<Varchar>,
             model_type -> ModelType,
             provider -> Provider,
-            env_key -> Varchar,
+            env_key -> Nullable<Varchar>,
             cost_per_token -> Nullable<Int4>,
             created_at -> Timestamp,
             updated_at -> Nullable<Timestamp>,
@@ -79,6 +79,8 @@ pub mod gateway {
             max_output -> Nullable<Varchar>,
             vision -> Nullable<Bool>,
             platform -> Nullable<Platform>,
+            active -> Bool,
+            endpoint_url -> Nullable<Varchar>,
         }
     }
 
