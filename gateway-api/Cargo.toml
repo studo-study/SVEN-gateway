@@ -6,11 +6,18 @@ edition = "2024"
 [dependencies]
 axum = "0.8.9"
 tokio = { version = "1.53.1", features = ["full"] }
-diesel = { version = "2.2.0", features = ["postgres", "r2d2", "uuid", "chrono"] }
+diesel = { version = "2.2.0", features = ["postgres", "r2d2", "uuid", "chrono", "serde_json"] }
 # build libpq and openssl as part of the build process
 pq-sys = { version = "0.6", features = ["bundled"] }
 openssl-sys = { version = "0.9.100", features = ["vendored"] }
 dotenvy = "0.15"
 serde = { version = "1", features = ["derive"] }
+serde_json = "1"
 uuid = { version = "1", features = ["serde", "v4"] }
 chrono = { version = "0.4", features = ["serde"] }
+axum-extra = { version = "0.10", features = ["cookie"] }
+jsonwebtoken = "9"
+argon2 = "0.5"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tower-http = { version = "0.6", features = ["trace", "cors"] }

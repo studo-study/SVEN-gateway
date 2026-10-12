@@ -1,3 +1,4 @@
+mod auth;
 mod config;
 mod error;
 mod models;
@@ -6,10 +7,14 @@ mod schema;
 use axum::{
     Json, Router,
     extract::{Path, State},
-    routing::get,
+    http::{HeaderValue, Method, header::CONTENT_TYPE},
+    routing::{get, post},
 };
 use diesel::prelude::*;
 use diesel::r2d2::{ConnectionManager, Pool};
+use tower_http::cors::CorsLayer;
+use tower_http::trace::TraceLayer;
+use tracing_subscriber::EnvFilter;
 use uuid::Uuid;
 
 use config::Config;
@@ -19,13 +24,22 @@ use models::Conversation;
 type DbPool = Pool<ConnectionManager<PgConnection>>;
 
 #[derive(Clone)]
-struct AppState {
+pub struct AppState {
     pool: DbPool,
+    jwt_secret: String,
 }
 
 #[tokio::main]
 async fn main() {
     dotenvy::dotenv().ok();
+
+    tracing_subscriber::fmt()
+        .with_env_filter(
+            EnvFilter::try_from_default_env()
+                .unwrap_or_else(|_| EnvFilter::new("info,tower_http=debug")),
+        )
+        .init();
+
     let config = Config::from_env();
 
     let manager = ConnectionManager::<PgConnection>::new(&config.database_url);
@@ -34,15 +48,36 @@ async fn main() {
         .expect("failed to create db pool");
 
     let port = config.port.clone();
+
+    let cors = CorsLayer::new()
+        .allow_origin(
+            config
+                .frontend_origin
+                .parse::<HeaderValue>()
+                .expect("FRONTEND_URL must be a valid origin"),
+        )
+        .allow_credentials(true)
+        .allow_methods([Method::GET, Method::POST, Method::OPTIONS])
+        .allow_headers([CONTENT_TYPE]);
+
     let app = Router::new()
         .route("/", get(root_handler))
         .route("/v1/conversations/{id}", get(get_conversation))
-        .with_state(AppState { pool });
+        .route("/v1/auth/login", post(auth::login))
+        .route("/v1/auth/logout", post(auth::logout))
+        .route("/v1/auth/me", get(auth::me))
+        .with_state(AppState {
+            pool,
+            jwt_secret: config.jwt_secret,
+        })
+        .layer(cors)
+        .layer(TraceLayer::new_for_http());
 
-    let listener = tokio::net::TcpListener::bind(format!("0.0.0.0:{port}"))
+    let addr = format!("0.0.0.0:{port}");
+    let listener = tokio::net::TcpListener::bind(&addr)
         .await
-        .unwrap();
-    println!("Server running on http://localhost:{port}");
+        .unwrap_or_else(|err| panic!("failed to bind {addr}: {err}"));
+    tracing::info!("server running on http://localhost:{port}");
 
     axum::serve(listener, app).await.unwrap();
 }
