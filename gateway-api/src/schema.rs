@@ -1,21 +1,11 @@
 // @generated automatically by Diesel CLI.
 
-// Shared `public.users` table from the main Studo app's database. Read-only
-// from gateway-api: only the columns the login flow needs are declared here.
-diesel::table! {
-    users (id) {
-        id -> Uuid,
-        email -> Varchar,
-        password_hash -> Varchar,
-        roles -> Jsonb,
-    }
-}
-
 pub mod gateway {
     pub mod sql_types {
         #[derive(diesel::query_builder::QueryId, Clone, diesel::sql_types::SqlType)]
         #[diesel(postgres_type(name = "log_type", schema = "gateway"))]
         pub struct LogType;
+
         #[derive(diesel::query_builder::QueryId, Clone, diesel::sql_types::SqlType)]
         #[diesel(postgres_type(name = "message_role", schema = "gateway"))]
         pub struct MessageRole;
@@ -27,6 +17,10 @@ pub mod gateway {
         #[derive(diesel::query_builder::QueryId, Clone, diesel::sql_types::SqlType)]
         #[diesel(postgres_type(name = "operation_type", schema = "gateway"))]
         pub struct OperationType;
+
+        #[derive(diesel::query_builder::QueryId, Clone, diesel::sql_types::SqlType)]
+        #[diesel(postgres_type(name = "platform", schema = "gateway"))]
+        pub struct Platform;
 
         #[derive(diesel::query_builder::QueryId, Clone, diesel::sql_types::SqlType)]
         #[diesel(postgres_type(name = "provider", schema = "gateway"))]
@@ -64,6 +58,7 @@ pub mod gateway {
         use diesel::sql_types::*;
         use super::sql_types::ModelType;
         use super::sql_types::Provider;
+        use super::sql_types::Platform;
 
         gateway.models (id) {
             id -> Uuid,
@@ -75,6 +70,15 @@ pub mod gateway {
             cost_per_token -> Nullable<Int4>,
             created_at -> Timestamp,
             updated_at -> Nullable<Timestamp>,
+            input_cost_pm -> Nullable<Int4>,
+            output_cost_pm -> Nullable<Int4>,
+            cached_cost_pm -> Nullable<Int4>,
+            #[max_length = 20]
+            context_window -> Nullable<Varchar>,
+            #[max_length = 20]
+            max_output -> Nullable<Varchar>,
+            vision -> Nullable<Bool>,
+            platform -> Nullable<Platform>,
         }
     }
 
