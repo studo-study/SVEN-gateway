@@ -8,7 +8,10 @@ mod schema_public;
 use axum::{
     Json, Router,
     extract::{Path, State},
-    http::{HeaderValue, Method, header::{AUTHORIZATION, CONTENT_TYPE}},
+    http::{
+        HeaderValue, Method,
+        header::{AUTHORIZATION, CONTENT_TYPE},
+    },
     routing::get,
 };
 use diesel::prelude::*;

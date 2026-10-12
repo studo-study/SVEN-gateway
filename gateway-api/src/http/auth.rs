@@ -1,5 +1,9 @@
 use argon2::{Argon2, PasswordHash, PasswordVerifier};
-use axum::{Json, Router, extract::State, routing::{get, post}};
+use axum::{
+    Json, Router,
+    extract::State,
+    routing::{get, post},
+};
 use axum_extra::extract::cookie::{Cookie, CookieJar, SameSite};
 use chrono::{Duration, Utc};
 use diesel::prelude::*;
