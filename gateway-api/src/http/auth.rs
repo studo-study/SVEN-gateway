@@ -174,8 +174,7 @@ where
                 .map(|c| c.value().to_string())
                 .ok_or(AppError::Unauthorized)?,
         };
-        let claims =
-            verify_token(&token, &state.jwt_secret).map_err(|_| AppError::Unauthorized)?;
+        let claims = verify_token(&token, &state.jwt_secret).map_err(|_| AppError::Unauthorized)?;
         if !claims.roles.iter().any(|r| r == ADMIN_ROLE) {
             return Err(AppError::Forbidden);
         }

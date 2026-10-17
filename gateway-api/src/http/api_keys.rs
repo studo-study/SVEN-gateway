@@ -1,5 +1,9 @@
 use axum::routing::{delete, get};
-use axum::{Json, Router, extract::{Path, State}, http::StatusCode};
+use axum::{
+    Json, Router,
+    extract::{Path, State},
+    http::StatusCode,
+};
 use chrono::Utc;
 use diesel::prelude::*;
 use rand::{Rng, distributions::Alphanumeric};
