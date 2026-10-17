@@ -61,7 +61,7 @@ async fn main() {
                 .expect("FRONTEND_URL must be a valid origin"),
         )
         .allow_credentials(true)
-        .allow_methods([Method::GET, Method::POST, Method::OPTIONS])
+        .allow_methods([Method::GET, Method::POST, Method::DELETE, Method::OPTIONS])
         .allow_headers([CONTENT_TYPE, AUTHORIZATION]);
 
     let app = Router::new()
