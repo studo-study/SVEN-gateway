@@ -1,9 +1,8 @@
-"use client";
-import React, { ReactNode } from "react";
+import React from "react";
 import { createPortal } from "react-dom";
-import { useTranslations } from "next-intl";
 import { ChevronDown } from "lucide-react";
-import classNames from "@studo/utils/classnames";
+import type {ReactNode} from "react";
+import classNames from "~/utils/classNames";
 
 interface SelectOption {
   value: string;
@@ -129,7 +128,6 @@ const Select = ({
     setOpen(false);
   };
 
-  const t = useTranslations("select");
 
   return (
     <div ref={containerRef} className={"relative min-w-fit"}>
@@ -205,7 +203,7 @@ const Select = ({
           >
             <div className={"w-full flex flex-col gap-1 min-w-fit"}>
               <span className={`w-full text-muted-foreground ${s.label}`}>
-                {label ?? t("options")}
+                {label}
               </span>
               <div
                 className={
