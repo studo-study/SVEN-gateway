@@ -28,6 +28,22 @@ pub mod gateway {
     }
 
     diesel::table! {
+        gateway.api_keys (id) {
+            id -> Uuid,
+            user_id -> Uuid,
+            description -> Varchar,
+            #[max_length = 10]
+            environment -> Varchar,
+            prefix -> Varchar,
+            key_hash -> Varchar,
+            created_at -> Timestamp,
+            last_used_at -> Nullable<Timestamp>,
+            expires_at -> Nullable<Timestamp>,
+            revoked_at -> Nullable<Timestamp>,
+        }
+    }
+
+    diesel::table! {
         gateway.conversations (id) {
             id -> Uuid,
             user_id -> Uuid,
@@ -129,6 +145,7 @@ pub mod gateway {
     diesel::joinable!(operations -> models (model_id));
 
     diesel::allow_tables_to_appear_in_same_query!(
+        api_keys,
         conversations,
         messages,
         models,

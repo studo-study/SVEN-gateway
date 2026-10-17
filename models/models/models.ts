@@ -20,3 +20,19 @@ export interface FullModelResponse {
 export interface FullModelListResponse {
     models: FullModelResponse[];
 }
+
+export interface ApiKeyResponse {
+    id: string;
+    userId: string;
+    description: string;
+    environment: "dev" | "staging" | "prod";
+    prefix: string;
+    createdAt: string;
+    lastUsedAt: string | null;
+    expiresAt: string | null;
+    revokedAt: string | null;
+}
+
+export interface CreatedApiKeyResponse extends ApiKeyResponse {
+    secret: string;
+}

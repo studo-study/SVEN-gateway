@@ -1,7 +1,8 @@
 use argon2::{Argon2, PasswordHash, PasswordVerifier};
 use axum::{
     Json, Router,
-    extract::State,
+    extract::{FromRef, FromRequestParts, State},
+    http::{header::AUTHORIZATION, request::Parts},
     routing::{get, post},
 };
 use axum_extra::extract::cookie::{Cookie, CookieJar, SameSite};
@@ -146,6 +147,40 @@ pub async fn me(
         roles: claims.roles,
         token,
     }))
+}
+
+/// Authenticated admin, read from `Authorization: Bearer <jwt>` or the session cookie.
+pub struct AdminUser(pub Claims);
+
+impl<S> FromRequestParts<S> for AdminUser
+where
+    AppState: FromRef<S>,
+    S: Send + Sync,
+{
+    type Rejection = AppError;
+
+    async fn from_request_parts(parts: &mut Parts, state: &S) -> Result<Self, AppError> {
+        let state = AppState::from_ref(state);
+        let bearer = parts
+            .headers
+            .get(AUTHORIZATION)
+            .and_then(|v| v.to_str().ok())
+            .and_then(|v| v.strip_prefix("Bearer "))
+            .map(String::from);
+        let token = match bearer {
+            Some(t) => t,
+            None => CookieJar::from_headers(&parts.headers)
+                .get(COOKIE_NAME)
+                .map(|c| c.value().to_string())
+                .ok_or(AppError::Unauthorized)?,
+        };
+        let claims =
+            verify_token(&token, &state.jwt_secret).map_err(|_| AppError::Unauthorized)?;
+        if !claims.roles.iter().any(|r| r == ADMIN_ROLE) {
+            return Err(AppError::Forbidden);
+        }
+        Ok(AdminUser(claims))
+    }
 }
 
 pub fn router() -> Router<AppState> {

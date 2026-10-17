@@ -5,9 +5,9 @@ import {Tag} from "~/components/design_system/tag/Tag";
 import {Cable, CodeXml, Eye, HardDrive} from "lucide-react";
 import classNames from "~/utils/classNames";
 import Button from "~/components/design_system/button/Button";
-import BaseDialog from "~/components/dialog/Dialog";
 import Input from "~/components/input/Input";
 import {useState} from "react";
+import BaseDialog from "~/components/design_system/dialog/Dialog";
 
 
 const formatPricePerMillion = (cents: number | null) =>

@@ -101,3 +101,20 @@ pub struct Model {
     pub active: bool,
     pub endpoint_url: Option<String>,
 }
+
+// field order must match `gateway.api_keys` in schema.rs
+#[derive(Queryable, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ApiKey {
+    pub id: Uuid,
+    pub user_id: Uuid,
+    pub description: String,
+    pub environment: String,
+    pub prefix: String,
+    #[serde(skip)]
+    pub key_hash: String,
+    pub created_at: NaiveDateTime,
+    pub last_used_at: Option<NaiveDateTime>,
+    pub expires_at: Option<NaiveDateTime>,
+    pub revoked_at: Option<NaiveDateTime>,
+}
