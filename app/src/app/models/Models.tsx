@@ -16,7 +16,15 @@ const PROVIDERS = ["anthropic", "open_ai", "google", "meta_ai", "microsoft", "am
 const PLATFORMS = ["anthropic_api", "openai_api", "google_gemini_api", "xai_api", "mistral_api", "deepseek_api", "alibaba_model_studio", "cohere_api", "baidu_qianfan", "tencent_hunyuan_api", "moonshot_api", "google_vertex_ai", "microsoft_foundry", "azure_openai", "amazon_bedrock", "openrouter", "together_ai", "groq", "fireworks_ai", "cerebras"];
 
 const toOptions = (values: string[]) =>
-    values.map((value) => ({value, label: value.replaceAll("_", " ")}));
+    values.map((value) => ({
+        value,
+        label: value
+            .replaceAll("_", " ")
+            .replace(/\b\w/g, (char) => char.toUpperCase())
+            .replace("Api", "API")
+            .replace("ai", "AI")
+            .replace("Ai", "AI"),
+    }));
 
 const dollarsToCents = (dollars: string) =>
     dollars.trim() === "" ? undefined : Math.round(Number(dollars) * 100);
