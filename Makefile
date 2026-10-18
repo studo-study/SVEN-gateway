@@ -27,11 +27,15 @@ stop-docker:
 	docker compose down
 
 
-#diesel workflow
+#atlas workflow (see atlas/CLAUDE.md)
 generate-schema:
-	@echo "generating migration..."
-	cd gateway-api && diesel migration generate
+	pnpm db:generate
 
 migrate-schema:
-	@echo "generating migration..."
-	cd gateway-api && diesel migration run
+	pnpm db:migrate
+
+hash-schema:
+	pnpm atlas:hash
+
+generate-diesel-schema:
+	pnpm db:diesel-schema

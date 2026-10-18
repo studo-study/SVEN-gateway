@@ -1,3 +1,6 @@
+-- public.users is owned by another app; stub only so an empty dev/CI database can resolve the FKs below
+CREATE TABLE IF NOT EXISTS public.users (id UUID PRIMARY KEY DEFAULT gen_random_uuid());
+
 -- Your SQL goes here
 CREATE SCHEMA IF NOT EXISTS gateway;
 
