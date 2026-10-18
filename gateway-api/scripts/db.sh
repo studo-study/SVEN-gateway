@@ -10,10 +10,10 @@ reset() {
   echo "dropping schema gateway + its migration history..."
   psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -q <<'SQL'
 DROP SCHEMA IF EXISTS gateway CASCADE;
-DELETE FROM __diesel_schema_migrations WHERE version <> '00000000000000';
+DROP TABLE IF EXISTS atlas_schema_revisions.atlas_schema_revisions;
 SQL
   echo "running migrations..."
-  diesel migration run
+  (cd .. && atlas migrate apply --env local)
 }
 
 seed() {

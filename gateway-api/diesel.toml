@@ -5,6 +5,3 @@
 file = "src/schema.rs"
 schema = "gateway"
 custom_type_derives = ["diesel::query_builder::QueryId"]
-
-[migrations_directory]
-dir = "diesel/migrations"
