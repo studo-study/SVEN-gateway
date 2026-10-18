@@ -4,7 +4,7 @@ import {useLogout} from "~/auth/auth";
 import {LogOut} from "lucide-react";
 import {useNavigate} from "react-router";
 import {PageTitle} from "~/components/design_system/pageTitle/PageTitle";
-import {AccountTable} from "~/routes/app/account/components/AccountTable";
+import {AccountTable} from "~/src/app/account/components/AccountTable";
 
 export function meta({}: Route.MetaArgs) {
     return [
