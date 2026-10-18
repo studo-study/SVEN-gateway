@@ -17,6 +17,20 @@ export interface FullModelResponse {
     endpointUrl: string | null;
 }
 
+export interface CreateModelRequest {
+    modelName: string;
+    modelType: string;
+    provider: string;
+    platform: string;
+    endpointUrl?: string;
+    inputCostPm?: number;
+    outputCostPm?: number;
+    cachedCostPm?: number;
+    contextWindow?: string;
+    maxOutput?: string;
+    vision?: boolean;
+}
+
 export interface FullModelListResponse {
     models: FullModelResponse[];
 }
