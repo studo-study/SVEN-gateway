@@ -1,6 +1,6 @@
 use chrono::NaiveDateTime;
 use diesel::prelude::*;
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
 #[derive(Queryable, Serialize)]
@@ -21,7 +21,7 @@ pub struct AuthUser {
     pub roles: serde_json::Value,
 }
 
-#[derive(Debug, Clone, Copy, diesel_derive_enum::DbEnum, Serialize)]
+#[derive(Debug, Clone, Copy, diesel_derive_enum::DbEnum, Serialize, Deserialize)]
 #[ExistingTypePath = "crate::schema::gateway::sql_types::ModelType"]
 #[serde(rename_all = "snake_case")]
 pub enum ModelType {
@@ -30,7 +30,7 @@ pub enum ModelType {
     Chat,
 }
 
-#[derive(Debug, Clone, Copy, diesel_derive_enum::DbEnum, Serialize)]
+#[derive(Debug, Clone, Copy, diesel_derive_enum::DbEnum, Serialize, Deserialize)]
 #[ExistingTypePath = "crate::schema::gateway::sql_types::Provider"]
 #[serde(rename_all = "snake_case")]
 pub enum Provider {
@@ -52,7 +52,7 @@ pub enum Provider {
     Moonshot,
 }
 
-#[derive(Debug, Clone, Copy, diesel_derive_enum::DbEnum, Serialize)]
+#[derive(Debug, Clone, Copy, diesel_derive_enum::DbEnum, Serialize, Deserialize)]
 #[ExistingTypePath = "crate::schema::gateway::sql_types::Platform"]
 #[serde(rename_all = "snake_case")]
 pub enum Platform {
