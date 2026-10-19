@@ -37,10 +37,21 @@ impl IntoResponse for AppError {
             AppError::BadRequest => (StatusCode::BAD_REQUEST, "invalid request".to_string()),
             AppError::Unauthorized => (StatusCode::UNAUTHORIZED, "invalid credentials".to_string()),
             AppError::Forbidden => (StatusCode::FORBIDDEN, "admin access required".to_string()),
-            AppError::GatewayTimeout => (StatusCode::GATEWAY_TIMEOUT, "model timed out".to_string()),
-            AppError::RateLimited => (StatusCode::TOO_MANY_REQUESTS, "model rate limited".to_string()),
-            AppError::NotImplemented => (StatusCode::NOT_IMPLEMENTED, "model platform not supported".to_string()),
-            AppError::BadGateway => (StatusCode::BAD_GATEWAY, "model endpoint unreachable".to_string()),
+            AppError::GatewayTimeout => {
+                (StatusCode::GATEWAY_TIMEOUT, "model timed out".to_string())
+            }
+            AppError::RateLimited => (
+                StatusCode::TOO_MANY_REQUESTS,
+                "model rate limited".to_string(),
+            ),
+            AppError::NotImplemented => (
+                StatusCode::NOT_IMPLEMENTED,
+                "model platform not supported".to_string(),
+            ),
+            AppError::BadGateway => (
+                StatusCode::BAD_GATEWAY,
+                "model endpoint unreachable".to_string(),
+            ),
             AppError::Database(err) => {
                 eprintln!("database error: {err}");
                 (

@@ -85,10 +85,10 @@ pub async fn run(
             }
             Platform::GoogleGeminiApi => {
                 let url = url.unwrap_or_else(|| {
-                    format!(
-                        "https://generativelanguage.googleapis.com/v1beta/models/{name}:generateContent"
-                    )
-                });
+                format!(
+                    "https://generativelanguage.googleapis.com/v1beta/models/{name}:generateContent"
+                )
+            });
                 let mut b = http.post(url).json(&gemini_body(req));
                 if let Some(key) = key {
                     b = b.header("x-goog-api-key", key);
@@ -198,7 +198,11 @@ fn gemini_body(req: &RunRequest) -> Value {
         .iter()
         .filter(|m| m.role != Role::System)
         .map(|m| {
-            let role = if m.role == Role::Assistant { "model" } else { "user" };
+            let role = if m.role == Role::Assistant {
+                "model"
+            } else {
+                "user"
+            };
             json!({"role": role, "parts": [{"text": m.content}]})
         })
         .collect();
@@ -237,7 +241,10 @@ fn parse_openai(body: &Value, model: &str) -> Result<RunResponse, RunError> {
         .ok_or_else(|| malformed("openai"))?
         .iter()
         .map(|c| Candidate {
-            content: c["message"]["content"].as_str().unwrap_or_default().to_string(),
+            content: c["message"]["content"]
+                .as_str()
+                .unwrap_or_default()
+                .to_string(),
             finish_reason: c["finish_reason"].as_str().map(str::to_string),
         })
         .collect();
@@ -309,7 +316,11 @@ mod tests {
                 content: content.into(),
                 finish_reason: Some(finish.into()),
             }],
-            usage: Usage { input: usage.0, output: usage.1, cached: usage.2 },
+            usage: Usage {
+                input: usage.0,
+                output: usage.1,
+                cached: usage.2,
+            },
             model: "m".into(),
         }
     }
@@ -318,23 +329,38 @@ mod tests {
     fn providers_normalize_to_same_shape() {
         let openai = json!({"choices": [{"message": {"content": "hi"}, "finish_reason": "stop"}],
             "usage": {"prompt_tokens": 3, "completion_tokens": 2, "prompt_tokens_details": {"cached_tokens": 1}}});
-        assert_eq!(parse_openai(&openai, "m").unwrap(), expected("hi", "stop", (3, 2, 1)));
+        assert_eq!(
+            parse_openai(&openai, "m").unwrap(),
+            expected("hi", "stop", (3, 2, 1))
+        );
 
         let anthropic = json!({"content": [{"type": "text", "text": "h"}, {"type": "text", "text": "i"}],
             "stop_reason": "end_turn", "usage": {"input_tokens": 3, "output_tokens": 2, "cache_read_input_tokens": 1}});
-        assert_eq!(parse_anthropic(&anthropic, "m").unwrap(), expected("hi", "end_turn", (3, 2, 1)));
+        assert_eq!(
+            parse_anthropic(&anthropic, "m").unwrap(),
+            expected("hi", "end_turn", (3, 2, 1))
+        );
 
         let gemini = json!({"candidates": [{"content": {"parts": [{"text": "hi"}]}, "finishReason": "STOP"}],
             "usageMetadata": {"promptTokenCount": 3, "candidatesTokenCount": 2, "cachedContentTokenCount": 1}});
-        assert_eq!(parse_gemini(&gemini, "m").unwrap(), expected("hi", "STOP", (3, 2, 1)));
+        assert_eq!(
+            parse_gemini(&gemini, "m").unwrap(),
+            expected("hi", "STOP", (3, 2, 1))
+        );
     }
 
     #[test]
     fn system_messages_move_out_of_the_message_list() {
         let req = RunRequest {
             messages: vec![
-                Message { role: Role::System, content: "be brief".into() },
-                Message { role: Role::User, content: "hi".into() },
+                Message {
+                    role: Role::System,
+                    content: "be brief".into(),
+                },
+                Message {
+                    role: Role::User,
+                    content: "hi".into(),
+                },
             ],
             temperature: None,
             max_tokens: None,

@@ -66,7 +66,13 @@ async fn run(
     };
 
     if let Some(prompt) = operation.system_prompt.filter(|p| !p.is_empty()) {
-        request.messages.insert(0, Message { role: Role::System, content: prompt });
+        request.messages.insert(
+            0,
+            Message {
+                role: Role::System,
+                content: prompt,
+            },
+        );
     }
     Ok(Json(inference::run(&state.http, &model, &request).await?))
 }
