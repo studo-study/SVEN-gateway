@@ -22,7 +22,7 @@ export default function Account({loaderData}: Route.ComponentProps) {
     const logout = useLogout();
 
     return (
-        <main className={"min-w-0 min-h-0 flex-1 flex items-center justify-center"}>
+        <main className={"page-container min-w-0 min-h-0 flex-1 flex items-center justify-center"}>
             <div className={"max-w-220 min-h-0 h-full flex-col flex-1 flex min-w-0"}>
                 <PageTitle title={"Account"}/>
                 <AccountTable/>

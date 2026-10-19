@@ -1,4 +1,5 @@
 import type { Route } from "./+types/Settings";
+import {PageTitle} from "~/components/design_system/pageTitle/PageTitle";
 
 
 export function meta({}: Route.MetaArgs) {
@@ -15,8 +16,7 @@ export function loader() {
 export default function Settings({ loaderData }: Route.ComponentProps) {
     return (
         <main>
-            <h1>Settings</h1>
-            <p>{loaderData.message}</p>
+            <PageTitle title={"Settings"}/>
         </main>
     );
 }

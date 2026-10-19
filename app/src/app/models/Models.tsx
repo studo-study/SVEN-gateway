@@ -68,12 +68,12 @@ const AddModel = () => {
         <BaseDialog
             trigger={<Button iconLeft={<Plus size={12}/>} size={"sm"} className={"min-w-fit"}>Add model</Button>}
             content={
-                <div className={"max-w-200 min-w-150 mb-3 w-full h-fit flex flex-col"}>
+                <div className={"max-w-200 md:min-w-150 mb-3 w-full h-fit flex flex-col"}>
                     <h2 className={"font-medium mb-3"}>Create model</h2>
                     <p className={"text-sm text-neutral-400 mb-3"}>
                         Add a model to the garden. Prices are in dollars per 1M tokens.
                     </p>
-                    <div className={"grid grid-cols-2 gap-3"}>
+                    <div className={"grid grid-cols-1 sm:grid-cols-2 gap-3"}>
                         <Input label={"Model name"} value={name} onChange={setName} placeholder={"claude-sonnet-5-5"}/>
                         <Input label={"Endpoint url"} value={url} onChange={setUrl} placeholder={"https://api.anthropic.com"}/>
                         <InputSelect label={"Type"} size={"lg"} value={modelType} options={toOptions(MODEL_TYPES)}
@@ -199,7 +199,7 @@ const ModelGridItem: React.FC<IModelGridItemProps> = ({model}) => {
                             {model.endpointUrl ? "reconfigure" : "configure"}
                         </Button>}
                 content={
-                <div className={"max-w-200 min-w-150 mb-3 w-full h-fit flex flex-col"}>
+                <div className={"max-w-200 md:min-w-150 mb-3 w-full h-fit flex flex-col"}>
                     <h2 className={"font-medium capitalize mb-3"}>Configure {model.platform?.replaceAll("_", " ").replace("api", "API")}</h2>
                     <p className={"text-sm text-neutral-400 mb-3"}>
                         Provide the <span className={"capitalize"}>{model.platform?.replaceAll("_", " ").replace("api", "API")}</span> endpoint and API key for
@@ -225,7 +225,7 @@ const ModelGridItem: React.FC<IModelGridItemProps> = ({model}) => {
 
 export default function Models() {
     const models = useModels().data?.models;
-    return (<main className={"flex flex-col pb-3 overflow-y-scroll scroll-hidden"}>
+    return (<main className={"page-container flex flex-col pb-3 overflow-y-scroll scroll-hidden"}>
             <div className={"flex flex-row justify-between items-center"}>
                 <PageTitle title={"Model garden"}/>
                 <AddModel/>
@@ -238,7 +238,7 @@ export default function Models() {
                     shape={"square"}
                 />
             </span>
-            <div className={"mb-20 grid grid-cols-4 gap-4"}>
+            <div className={"mb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4"}>
                 {models?.filter(model => model.active).map((model) => (
                     <ModelGridItem key={model.id} model={model}/>
                 ))}
@@ -256,7 +256,7 @@ export default function Models() {
 
                 Models marked as outdated, even though they still function temporarily. Always set a replacement when shelving models.
             </p>
-            <div className={"grid grid-cols-4 gap-4"}>
+            <div className={"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4"}>
                 {models?.filter(model => !model.active).map((model) => (
                     <ModelGridItem key={model.id} model={model}/>
                 ))}

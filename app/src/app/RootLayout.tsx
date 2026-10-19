@@ -1,7 +1,8 @@
-import {Link, Outlet} from "react-router";
+import {useEffect, useState} from "react";
+import {Link, Outlet, useLocation} from "react-router";
 import SvenIcon from "~/components/icons/SvenIcon";
 import SideMenu from "~/components/layout/SideMenu";
-import {Bell, User} from "lucide-react";
+import {Bell, Menu, User, X} from "lucide-react";
 import {authMiddleware} from "~/middleware";
 
 export const middleware = [authMiddleware];
@@ -11,12 +12,19 @@ export function headers() {
 }
 
 export default function RootLayout() {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const {pathname} = useLocation();
+    useEffect(() => setMenuOpen(false), [pathname]);
     return (
-        <div className={"flex flex-col w-screen h-screen"}>
+        <div className={"flex flex-col w-full h-dvh"}>
             <header
-                className={"w-screen bg-neutral-50-500 min-h-15 h-15 border-b border-neutral-200 px-3 pr-5 flex items-center justify-between"}>
+                className={"w-full bg-neutral-50-500 min-h-15 h-15 border-b border-neutral-200 px-3 pr-3 sm:pr-5 gap-2 flex items-center justify-between"}>
+                <button type="button" aria-label="menu" onClick={() => setMenuOpen(o => !o)}
+                        className={"md:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-neutral-200/50"}>
+                    {menuOpen ? <X size={18}/> : <Menu size={18}/>}
+                </button>
                 <Link to="/"
-                      className={"flex flex-row gap-2 items-center px-3 py-1.5 rounded-2xl hover:bg-neutral-200/50 transition-colors duration-300"}>
+                      className={"flex flex-row gap-2 items-center px-3 py-1.5 mr-auto rounded-2xl hover:bg-neutral-200/50 transition-colors duration-300"}>
                     <SvenIcon size={20} className={"pb-1"}/>
                     <h1 className={"text-xl font-georgia font-medium"}><span
                         className={"text-blue-500"}>Sven</span> gateway</h1>
@@ -36,8 +44,9 @@ export default function RootLayout() {
                 </div>
             </header>
             <div className={"min-w-0 min-h-0 flex-1 flex flex-row"}>
-                <SideMenu/>
-                <div className={"min-w-0 min-h-0 flex flex-1 flex-col p-10 pt-11.5"}>
+                {menuOpen && <div className={"md:hidden fixed inset-0 top-15 z-40 bg-black/30"} onClick={() => setMenuOpen(false)}/>}
+                <SideMenu open={menuOpen}/>
+                <div className={"min-w-0 min-h-0 flex flex-1 flex-col p-4 pt-6 sm:p-6 md:p-10 md:pt-11.5"}>
                     <Outlet/>
                 </div>
             </div>

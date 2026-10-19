@@ -57,11 +57,10 @@ const MENU_ITEMS = [
     },
 
 ]
-const SideMenu = () => {
+const SideMenu = ({open = false}: {open?: boolean}) => {
     const path = useLocation().pathname.replace("/", "");
-    console.log(path)
     return (<div
-        className={"max-w-55 bg-neutral-50 min-w-0 min-h-0 flex-1 border-r border-neutral-200 flex flex-col p-5 gap-1"}>
+        className={`fixed top-15 bottom-0 left-0 z-50 w-55 transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"} md:static md:translate-x-0 md:z-auto md:flex-1 md:w-auto max-w-55 overflow-y-auto bg-neutral-50 min-w-0 min-h-0 border-r border-neutral-200 flex flex-col p-5 gap-1`}>
         {
             MENU_ITEMS.map((section, index) => (
                 <div className={"flex flex-col gap-1 w-full mb-5"}>

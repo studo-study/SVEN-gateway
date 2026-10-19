@@ -96,13 +96,13 @@ const OperationDialog: React.FC<IOperationDialogProps> = ({trigger, operation}) 
             onOpenChange={(open) => open && fill()}
             trigger={trigger}
             content={
-                <div className={"w-200 max-w-[calc(90vw-5rem)] mb-3 h-fit flex flex-col"}>
+                <div className={"w-200 max-w-[calc(100vw-4rem)] mb-3 h-fit flex flex-col"}>
                     <h2 className={"font-medium mb-3"}>{operation ? `Edit ${operation.title}` : "Create operation"}</h2>
                     <p className={"text-sm text-neutral-400 mb-3"}>
                         An operation runs a prompt on a model. The slug must be unique.
                     </p>
                     <div className={"flex-1 min-h-0 overflow-y-auto px-2 scroll-hidden pb-1"}>
-                        <div className={"grid grid-cols-2 gap-3"}>
+                        <div className={"grid grid-cols-1 sm:grid-cols-2 gap-3"}>
                             <Input label={"Title"} value={title} onChange={setTitle} placeholder={"Course summarizing"}/>
                             <Input label={"Slug"} value={slug} onChange={setSlug} placeholder={"course-summarizing"}/>
                             <InputSelect label={"Operation type"} size={"lg"} value={operationType}
@@ -120,7 +120,7 @@ const OperationDialog: React.FC<IOperationDialogProps> = ({trigger, operation}) 
                             <InputSelect label={"Active"} size={"lg"} value={isActive}
                                          options={[{value: "yes", label: "yes"}, {value: "no", label: "no"}]}
                                          onChange={(v) => setIsActive(String(v))}/>
-                            <label className={"col-span-2 flex flex-col"}>
+                            <label className={"sm:col-span-2 flex flex-col"}>
                                 <span className={"flex justify-between text-xs px-3 text-neutral-400 mb-1"}>
                                     System prompt <span>{systemPrompt.length.toLocaleString()} chars</span>
                                 </span>
@@ -193,7 +193,7 @@ export default function Operations() {
     return (
         <main className={"flex flex-col pb-3 overflow-y-scroll overflow-x-hidden scroll-hidden"}>
             <PageTitle title={"Operations"} actions={  <OperationDialog trigger={<Button iconLeft={<Plus size={12}/>} size={"sm"} className={"min-w-fit m-0"}>Create operation</Button>}/>}/>
-            <div className={"grid grid-cols-4 gap-4"}>
+            <div className={"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4"}>
                 {operations?.map((operation) => (
                     <OperationItem key={operation.id} operation={operation} modelName={modelName(operation.modelId)}/>
                 ))}

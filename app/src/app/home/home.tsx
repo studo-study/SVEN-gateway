@@ -33,9 +33,9 @@ const DashboardStats = () => {
         },
     ]
 
-    return (<div className={'w-full h-fit flex gap-5 flex-row flex-wrap justify-between items-center'}>
+    return (<div className={'w-full h-fit flex gap-5 flex-row flex-wrap md:justify-between items-center'}>
         {stats.map((stat, index) => {
-            return (<div className={'flex flex-col gap-1.5 w-1/5 h-10 mb-3'} key={stat.label + index}>
+            return (<div className={'flex flex-col gap-1.5 w-[calc(50%-0.625rem)] md:w-1/5 h-10 mb-3'} key={stat.label + index}>
                 <h3 className={'text-sm text-neutral-400'}>{stat.label}</h3>
                 <span>{stat.value}</span>
             </div>)

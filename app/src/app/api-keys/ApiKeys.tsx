@@ -29,7 +29,7 @@ const AddModal: React.FC<IAddModal> = (props) => {
                 Create API key
             </Button>}
         content={
-            <div className={"max-w-200 min-w-120 mb-3 w-full h-fit flex flex-col"}>
+            <div className={"max-w-200 md:min-w-120 mb-3 w-full h-fit flex flex-col"}>
                 <h2 className={"font-medium capitalize mb-3"}>Create API key</h2>
                 <p className={"text-sm text-neutral-400 mb-3"}>
                     Generate an API key to use in your environment
@@ -147,7 +147,7 @@ const formatDate = (date: string | null) => date ? new Date(date + "Z").toLocale
 const KeyTable = () => {
     const {data: keys = []} = useApiKeys();
     const revoke = useRevokeApiKey();
-    return (<div className={"flex flex-col"}>
+    return (<div className={"overflow-x-auto"}><div className={"flex flex-col min-w-200"}>
         <KeyTableHeader/>
         <div
             className={"border-b border-l flex flex-col border-r rounded-bl-xl rounded-br-xl border-neutral-200 min-h-10 divide-y divide-neutral-200"}>
@@ -167,7 +167,7 @@ const KeyTable = () => {
                 </div>
             ))}
         </div>
-    </div>)
+    </div></div>)
 }
 export default function ApiKeys({loaderData}: Route.ComponentProps) {
     const [environment, setEnvironment] = useState<string>("");
