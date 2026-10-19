@@ -50,3 +50,32 @@ export interface ApiKeyResponse {
 export interface CreatedApiKeyResponse extends ApiKeyResponse {
     secret: string;
 }
+
+export interface OperationResponse {
+    id: string;
+    slug: string;
+    operationType: string;
+    modelType: string;
+    title: string;
+    modelId: string | null;
+    prompt: string | null;
+    isActive: boolean;
+    createdAt: string;
+    updatedAt: string | null;
+    systemPrompt: string | null;
+}
+
+export interface OperationListResponse {
+    operations: OperationResponse[];
+}
+
+export interface CreateOperationRequest {
+    slug: string;
+    title: string;
+    operationType: string;
+    modelType: string;
+    modelId?: string;
+    prompt?: string;
+    systemPrompt?: string;
+    isActive?: boolean;
+}
