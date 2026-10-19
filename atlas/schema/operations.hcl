@@ -94,10 +94,14 @@ table "operations" {
     null = true
     type = uuid
   }
-  column "prompt" {
+
+  column "system_prompt" {
     null = true
     type = text
   }
+  
+
+
   column "is_active" {
     null    = false
     type    = boolean

@@ -2,6 +2,7 @@ mod config;
 mod error;
 mod http;
 mod models;
+mod operations;
 mod schema;
 mod schema_public;
 
@@ -61,7 +62,13 @@ async fn main() {
                 .expect("FRONTEND_URL must be a valid origin"),
         )
         .allow_credentials(true)
-        .allow_methods([Method::GET, Method::POST, Method::DELETE, Method::OPTIONS])
+        .allow_methods([
+            Method::GET,
+            Method::POST,
+            Method::PUT,
+            Method::DELETE,
+            Method::OPTIONS,
+        ])
         .allow_headers([CONTENT_TYPE, AUTHORIZATION]);
 
     let app = Router::new()
