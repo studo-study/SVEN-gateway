@@ -134,6 +134,7 @@ pub mod gateway {
             is_active -> Bool,
             created_at -> Timestamp,
             updated_at -> Nullable<Timestamp>,
+            system_prompt -> Nullable<Text>,
         }
     }
 

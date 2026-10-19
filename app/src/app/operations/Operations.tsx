@@ -1,4 +1,5 @@
 import type { Route } from "./+types/Operations";
+import {PageTitle} from "~/components/design_system/pageTitle/PageTitle";
 
 
 export function meta({}: Route.MetaArgs) {
@@ -12,11 +13,12 @@ export function loader() {
     return { message: "Hello from the about loader" };
 }
 
+
 export default function Operations({ loaderData }: Route.ComponentProps) {
     return (
         <main>
-            <h1>Operations</h1>
-            <p>{loaderData.message}</p>
+            <PageTitle title={"Operations"}/>
+
         </main>
     );
 }

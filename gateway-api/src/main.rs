@@ -4,6 +4,7 @@ mod http;
 mod models;
 mod schema;
 mod schema_public;
+mod operations;
 
 use axum::{
     Json, Router,
