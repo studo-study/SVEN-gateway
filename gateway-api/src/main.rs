@@ -1,6 +1,7 @@
 mod config;
 mod error;
 mod http;
+mod inference;
 mod models;
 mod operations;
 mod schema;
@@ -32,6 +33,7 @@ type DbPool = Pool<ConnectionManager<PgConnection>>;
 pub struct AppState {
     pool: DbPool,
     jwt_secret: String,
+    http: reqwest::Client,
 }
 
 #[tokio::main]
@@ -78,6 +80,11 @@ async fn main() {
         .with_state(AppState {
             pool,
             jwt_secret: config.jwt_secret,
+            http: reqwest::Client::builder()
+                .connect_timeout(std::time::Duration::from_secs(5))
+                .timeout(inference::UPSTREAM_TIMEOUT)
+                .build()
+                .expect("failed to build http client"),
         })
         .layer(cors)
         .layer(TraceLayer::new_for_http());
