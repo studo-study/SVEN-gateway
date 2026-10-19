@@ -2,9 +2,9 @@ mod config;
 mod error;
 mod http;
 mod models;
+mod operations;
 mod schema;
 mod schema_public;
-mod operations;
 
 use axum::{
     Json, Router,
