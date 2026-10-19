@@ -42,7 +42,7 @@ export const AccountTable: React.FC = () => {
                         )}>
                         <span className={"font-medium min-w-0 flex-1"}>{item.title}</span>
                         <div className={"text-neutral-500 flex flex-row gap-2 justify-end items-center min-w-0 flex-1"}>
-                            <span className={"max-w-1/3 w-full truncate overflow-hidden"}>{item.value}</span>
+                            <span className={"max-w-full w-full text-right truncate overflow-hidden"}>{item.value}</span>
                             <button
                                 type="button"
                                 className={"active:scale-90 transition-transform duration-300 cursor-pointer"}
