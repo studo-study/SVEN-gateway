@@ -55,7 +55,6 @@ const OperationDialog: React.FC<IOperationDialogProps> = ({trigger, operation}) 
     const [modelType, setModelType] = useState("chat");
     const [modelId, setModelId] = useState("");
     const [systemPrompt, setSystemPrompt] = useState("");
-    const [prompt, setPrompt] = useState("");
     const [isActive, setIsActive] = useState("yes");
 
     // prefill from the saved operation (edit) or blank (create) every time the dialog opens
@@ -66,7 +65,6 @@ const OperationDialog: React.FC<IOperationDialogProps> = ({trigger, operation}) 
         setModelType(operation?.modelType ?? "chat");
         setModelId(operation?.modelId ?? "");
         setSystemPrompt(operation?.systemPrompt ?? "");
-        setPrompt(operation?.prompt ?? "");
         setIsActive(operation?.isActive === false ? "no" : "yes");
         mutation.reset();
     };
@@ -85,9 +83,8 @@ const OperationDialog: React.FC<IOperationDialogProps> = ({trigger, operation}) 
             operationType,
             modelType,
             modelId: modelId || undefined,
-            // keep prompts verbatim (no trim): whitespace can be meaningful, and they can be huge
+            // keep the system prompt verbatim (no trim): whitespace can be meaningful, and it can be huge
             systemPrompt: systemPrompt || undefined,
-            prompt: prompt || undefined,
             isActive: isActive === "yes",
         };
         if (operation) updateOperation.mutate({id: operation.id, ...body});
@@ -127,17 +124,9 @@ const OperationDialog: React.FC<IOperationDialogProps> = ({trigger, operation}) 
                                 <span className={"flex justify-between text-xs px-3 text-neutral-400 mb-1"}>
                                     System prompt <span>{systemPrompt.length.toLocaleString()} chars</span>
                                 </span>
-                                <textarea className={textareaClass} rows={14} value={systemPrompt}
+                                <textarea className={textareaClass} rows={22} value={systemPrompt}
                                           onChange={(e) => setSystemPrompt(e.target.value)}
                                           placeholder={"system prompt..."}/>
-                            </label>
-                            <label className={"col-span-2 flex flex-col"}>
-                                <span className={"flex justify-between text-xs px-3 text-neutral-400 mb-1"}>
-                                    Prompt <span>{prompt.length.toLocaleString()} chars</span>
-                                </span>
-                                <textarea className={textareaClass} rows={14} value={prompt}
-                                          onChange={(e) => setPrompt(e.target.value)}
-                                          placeholder={"prompt..."}/>
                             </label>
                         </div>
                     </div>
@@ -183,8 +172,8 @@ const OperationItem: React.FC<IOperationItemProps> = ({operation, modelName}) =>
                 <span>Model</span>
                 <span className={"truncate ml-2"}>{modelName ?? "–"}</span>
             </div>
-            <p className={"text-[11px] text-neutral-400 line-clamp-3 break-all"}>
-                {operation.systemPrompt ?? operation.prompt ?? "No prompt set"}
+            <p className={"text-[11px] text-neutral-400 line-clamp-1 break-words"}>
+                {operation.systemPrompt ?? "No system prompt set"}
             </p>
             <div className={"flex flex-row justify-end"}>
                 <OperationDialog

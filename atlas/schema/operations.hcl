@@ -100,10 +100,6 @@ table "operations" {
     type = text
   }
   
-  column "prompt" {
-    null = true
-    type = text
-  }
 
 
   column "is_active" {

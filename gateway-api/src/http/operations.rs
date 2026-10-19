@@ -35,7 +35,6 @@ struct OperationRequest {
     operation_type: OperationType,
     model_type: ModelType,
     model_id: Option<Uuid>,
-    prompt: Option<String>,
     system_prompt: Option<String>,
     is_active: Option<bool>,
 }
@@ -86,7 +85,6 @@ async fn create_operation(
             o::operation_type.eq(body.operation_type),
             o::model_type.eq(body.model_type),
             o::model_id.eq(body.model_id),
-            o::prompt.eq(body.prompt),
             o::system_prompt.eq(body.system_prompt),
             o::is_active.eq(body.is_active.unwrap_or(true)),
         ))
@@ -119,7 +117,6 @@ async fn update_operation(
             o::operation_type.eq(body.operation_type),
             o::model_type.eq(body.model_type),
             o::model_id.eq(body.model_id),
-            o::prompt.eq(body.prompt),
             o::system_prompt.eq(body.system_prompt),
             o::is_active.eq(body.is_active.unwrap_or(true)),
             o::updated_at.eq(Utc::now().naive_utc()),

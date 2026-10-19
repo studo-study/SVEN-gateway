@@ -58,7 +58,6 @@ export interface OperationResponse {
     modelType: string;
     title: string;
     modelId: string | null;
-    prompt: string | null;
     isActive: boolean;
     createdAt: string;
     updatedAt: string | null;
@@ -75,7 +74,6 @@ export interface CreateOperationRequest {
     operationType: string;
     modelType: string;
     modelId?: string;
-    prompt?: string;
     systemPrompt?: string;
     isActive?: boolean;
 }

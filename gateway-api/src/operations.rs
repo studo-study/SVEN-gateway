@@ -26,7 +26,6 @@ pub struct Operation {
     pub model_type: crate::models::ModelType,
     pub title: String,
     pub model_id: Option<Uuid>,
-    pub prompt: Option<String>,
     pub is_active: bool,
     pub created_at: NaiveDateTime,
     pub updated_at: Option<NaiveDateTime>,

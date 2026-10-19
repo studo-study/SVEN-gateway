@@ -130,7 +130,6 @@ pub mod gateway {
             model_type -> ModelType,
             title -> Varchar,
             model_id -> Nullable<Uuid>,
-            prompt -> Nullable<Text>,
             is_active -> Bool,
             created_at -> Timestamp,
             updated_at -> Nullable<Timestamp>,
