@@ -22,7 +22,7 @@ const BaseDialog: React.FC<IBaseDialogProps> = (props) => {
             <Dialog.Portal>
                 <Dialog.Overlay className="bg-black/40 fixed inset-0 z-999"/>
                 <Dialog.Content
-                    className="bg-white max-w-[calc(100vw-1.5rem)] sm:max-w-230 max-h-[90vh] overflow-y-auto overflow-x-hidden h-fit w-fit px-4 sm:px-10 py-5 pt-10 border border-neutral-200 rounded-2xl fixed z-9999 left-1/2 top-1/2 -translate-1/2">
+                    className="bg-white max-w-[calc(100vw-1.5rem)] sm:max-w-230 overflow-visible h-fit w-fit px-4 sm:px-10 py-5 pt-10 border border-neutral-200 rounded-2xl fixed z-9999 left-1/2 top-1/2 -translate-1/2">
                     {content}
                     <div className={"flex flex-row justify-end w-full gap-2 items-center"}>
                         {close && <Dialog.Close asChild>

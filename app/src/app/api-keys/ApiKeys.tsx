@@ -7,6 +7,9 @@ import {useApiKeys, useCreateApiKey, useRevokeApiKey} from "~/hooks/useApiKeys";
 import Input from "~/components/input/Input";
 import InputSelect from "~/components/design_system/select/InputSelect";
 import {type SetStateAction, useState} from "react";
+import Table from "~/components/design_system/table/Table";
+import type {IColumn} from "~/components/design_system/table";
+import type {ApiKeyResponse} from "../../../../models/models/models";
 
 interface IAddModal {
     description: string;
@@ -94,80 +97,33 @@ export function loader() {
     return {message: "Hello from the about loader"};
 }
 
-const Columns = [
-    {
-        title: "description",
-        width: "1.2fr",
-    },
-    {
-        title: "environment",
-        width: "0.8fr",
-    },
-    {
-        title: "key",
-        width: "0.8fr",
-    },
-    {
-        title: "created at",
-        width: "12rem",
-    },
-    {
-        title: "last used at",
-        width: "12rem",
-    },
-    {
-        title: "revoke",
-        width: "8rem",
-    }
-];
-
-const template = Columns.map((col) => col.width).join(" ");
-
-const KeyTableHeader = () => {
-    return (
-        <div
-            style={{
-                gridTemplateColumns: template,
-            }}
-            className={"grid grid-cols-6 h-8 border-b border-neutral-200 bg-neutral-100 rounded-tl-xl rounded-tr-xl"}>
-            {
-                Columns.map((col) => (
-                    <div
-                        key={col.title}
-                        className={"flex flex-row px-3 h-8 items-center tracking-wider uppercase text-[11px] text-neutral-400"}>
-                        {col.title}
-                    </div>
-                ))
-            }
-        </div>
-    )
-}
 const formatDate = (date: string | null) => date ? new Date(date + "Z").toLocaleString() : "never";
 
 const KeyTable = () => {
     const {data: keys = []} = useApiKeys();
     const revoke = useRevokeApiKey();
-    return (<div className={"overflow-x-auto"}><div className={"flex flex-col min-w-200"}>
-        <KeyTableHeader/>
-        <div
-            className={"border-b border-l flex flex-col border-r rounded-bl-xl rounded-br-xl border-neutral-200 min-h-10 divide-y divide-neutral-200"}>
-            {keys.map((key) => (
-                <div key={key.id} style={{gridTemplateColumns: template}} className={"grid items-center text-sm"}>
-                    <div className={"px-3 py-2 truncate"}>{key.description}</div>
-                    <div className={"px-3"}>{key.environment}</div>
-                    <div className={"px-3 font-mono text-xs text-neutral-500"}>{key.prefix}…</div>
-                    <div className={"px-3 text-neutral-500"}>{formatDate(key.createdAt)}</div>
-                    <div className={"px-3 text-neutral-500"}>{formatDate(key.lastUsedAt)}</div>
-                    <div className={"px-3"}>
-                        <Button size={"sm"} variant={"secondary"} iconLeft={<Trash2Icon size={15}/>}
-                                onClick={() => revoke.mutate(key.id)}>
-                            Revoke
-                        </Button>
-                    </div>
-                </div>
-            ))}
-        </div>
-    </div></div>)
+    const columns: IColumn<ApiKeyResponse>[] = [
+        {title: "description", width: "1.2fr", className: "truncate", render: (key) => key.description},
+        {title: "environment", width: "0.8fr", render: (key) => key.environment},
+        {
+            title: "key", width: "0.8fr", className: "font-mono text-xs text-neutral-500",
+            render: (key) => `${key.prefix}…`
+        },
+        {title: "created at", width: "12rem", className: "text-neutral-500", render: (key) => formatDate(key.createdAt)},
+        {
+            title: "last used at", width: "12rem", className: "text-neutral-500",
+            render: (key) => formatDate(key.lastUsedAt)
+        },
+        {
+            title: "revoke", width: "8rem", render: (key) => (
+                <Button size={"sm"} variant={"secondary"} iconLeft={<Trash2Icon size={15}/>}
+                        onClick={() => revoke.mutate(key.id)}>
+                    Revoke
+                </Button>
+            )
+        },
+    ];
+    return <Table columns={columns} rows={keys} rowKey={(key) => key.id}/>;
 }
 export default function ApiKeys({loaderData}: Route.ComponentProps) {
     const [environment, setEnvironment] = useState<string>("");

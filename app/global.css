@@ -54,3 +54,15 @@ body {
   max-width: 120rem;
 
 }
+
+::selection {
+  background: var(--color-sky-100);
+  color: var(--color-blue-400);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: var(--color-sky-100);
+  color: var(--color-blue-400);
+  text-shadow: none;
+}
